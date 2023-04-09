@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm4dlg4q7kf8b"]
+
+[ext_resource type="Texture2D" uid="uid://dy386jn5j5u06" path="res://socky/sock.png" id="1_5ihow"]
+[ext_resource type="Script" path="res://socky/socky.gd" id="1_iu0in"]
+
+[node name="Socky" type="Node2D"]
+script = ExtResource("1_iu0in")
+
+[node name="Arm" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 45.0
+default_color = Color(1, 0.870588, 0.701961, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Sock" type="Node2D" parent="."]
+
+[node name="Sock" type="Sprite2D" parent="Sock"]
+position = Vector2(12, 0)
+texture = ExtResource("1_5ihow")

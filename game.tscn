@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bubinpdp03kly"]
+
+[ext_resource type="Texture2D" uid="uid://c7r8gl1vxg6b" path="res://icon.svg" id="1_6wqj8"]
+[ext_resource type="Script" path="res://game.gd" id="1_ebrfx"]
+[ext_resource type="Texture2D" uid="uid://401mdu1e48q2" path="res://background.svg" id="2_rwwpb"]
+[ext_resource type="PackedScene" uid="uid://bm4dlg4q7kf8b" path="res://socky/socky.tscn" id="3_tux2g"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnu1j"]
+resource_name = "godot"
+texture = ExtResource("1_6wqj8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qhruw"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_bnu1j")
+
+[node name="Game" type="Node"]
+script = ExtResource("1_ebrfx")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(206, 446)
+texture = ExtResource("2_rwwpb")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(206, 446)
+tile_set = SubResource("TileSet_qhruw")
+cell_quadrant_size = 64
+format = 2
+layer_0/name = "foreground"
+layer_0/tile_data = PackedInt32Array(-1, 1, 0, 0, 1, 0, -131071, 65537, 1, -196610, 65537, 1, -196607, 65537, 0, -196608, 1, 0, -131072, 1, 1)
+
+[node name="Socky" parent="." instance=ExtResource("3_tux2g")]
+position = Vector2(116, 892)
